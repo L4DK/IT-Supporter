@@ -1,5 +1,6 @@
 
-# AdminTeamsRunner: Simplify Administrative Tasks During Microsoft Teams Calls
+# AdminTeamsRunner:
+## Simplify Administrative Tasks During Microsoft Teams Calls
 
 Elevate Your Productivity with Ease
 Introducing AdminTeamsRunner, a PowerShell script that empowers you to run programs with administrative privileges seamlessly during Microsoft Teams calls. This innovative tool eliminates the hassle of switching between applications and navigating complex processes to access administrative tools.
