@@ -26,7 +26,7 @@ To use AdminTeamsRunner, follow these simple steps:
 
 ### Instructions:
 1. Execute the command: In the PowerShell terminal, run the following command:
-   ### powershell -ep bypass -file .\aruh.ps1 -f <path_to_start_file_as_administrator> -u <your_administrative_user>
+   ### powershell -ep bypass -file .\L4_ATR.ps1 -f <path_to_start_file_as_administrator> -u <your_administrative_user>
 
 2. Enter credentials: Enter the password for the administrative user when prompted.
 3. Confirm program launch: A window will appear with two options: "Yes" and "No". Press "Yes" to start the program.
