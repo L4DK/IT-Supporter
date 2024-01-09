@@ -1,7 +1,5 @@
 
-Sure, here is the README.md file in Markdown format:
-
-AdminTeamsRunner: Simplify Administrative Tasks During Microsoft Teams Calls
+# AdminTeamsRunner: Simplify Administrative Tasks During Microsoft Teams Calls
 
 Elevate Your Productivity with Ease
 Introducing AdminTeamsRunner, a PowerShell script that empowers you to run programs with administrative privileges seamlessly during Microsoft Teams calls. This innovative tool eliminates the hassle of switching between applications and navigating complex processes to access administrative tools.
@@ -14,3 +12,16 @@ AdminTeamsRunner seamlessly integrates with Microsoft Teams, enabling you to han
 
 Streamlined Workflow and Enhanced Productivity
 AdminTeamsRunner empowers you to optimize your workflow and enhance your productivity. By simplifying the execution of administrative tasks during Microsoft Teams calls, you can focus on the conversation while maintaining control over your system's configuration.
+
+
+Get Started with AdminTeamsRunner
+
+To use AdminTeamsRunner, follow these simple steps:
+
+Prerequisites
+Move the executable file: Move the executable file of the program you want to run to a folder without spaces or whitespaces.
+
+Open PowerShell terminal: Open a PowerShell terminal in the script folder.
+
+Instructions
+Execute the command: In the PowerShell terminal, run the following command:
