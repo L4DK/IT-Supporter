@@ -13,17 +13,20 @@
     Prerequisites    : None
     Date Created     : January 27, 2024
     Last Edit        : January 27, 2024
-    Version          : 1.0.0
+    Version          : 1.0.1
     PowerShell       : 5.1
     Contact          : dev@l4ndbo.com
 
     Change History:
+    - Version 1.0.1 (January 27, 2024)
+        - Added the feature to let the user input in the terminal, the length of the wanted generated password.
+        
     - Version 1.0.0 (January 27, 2024)
         - Initial release
 #>
 
 # Password Length
-$Length = 12
+$Length = Read-Host "Enter the length of the password"
 
 # Define Character Sets
 $UpperCase = @('A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z')
