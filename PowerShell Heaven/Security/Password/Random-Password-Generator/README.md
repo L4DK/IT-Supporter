@@ -1,5 +1,5 @@
 # Password Generator by L4ndbo (L4)
-> Current Version: 0.0.1 (Last edited: 2024-01-27)
+> Current Version: 1.0.0 (Last edited: 2024-01-27)
 
 Welcome to the Password Generator script by L4ndbo!
 This PowerShell script is designed to generate secure and random passwords based on customizable criteria. 
