@@ -28,7 +28,8 @@ To use the Password Generator script:
 
 ### Password Generator Script
 - [ ] Refactor the script for better readability and maintainability.
-- [ ] Add options for custom password length.
+- [x] Add a Feature for custom password length (Added as a user-interaction feature)
+   > https://github.com/L4DK/IT-Supporter/commit/34c7582680e940ad7a608297888edd0ea30b4361   
 - [ ] Enhance the user interface for a more user-friendly experience.
 - [ ] Test the script thoroughly to ensure secure and random password generation.
 - [ ] Document usage instructions and options within the script.
