@@ -8,7 +8,8 @@
 
 .NOTES
     Script Name      : RandomPasswordGenerator.ps1
-    Author           : L4ndbo
+    Author           : Michael Landbo
+    Nickname         : L4ndbo or L4
     Prerequisites    : None
     Date Created     : January 27, 2024
     Last Edit        : January 27, 2024
@@ -21,48 +22,40 @@
         - Initial release
 #>
 
-# Password Generator
-$Length=12
+# Password Length
+$Length = 12
 
 # Define Character Sets
-$UpperCase=@('A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z')
-$LowerCase=@('a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z')
-$Numbers=@('1','2','3','4','5','6','7','8','9','0')
-$Symbols=@('!','@','$','?','<','>','*','&')
-$FullSet=@('A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','1','2','3','4','5','6','7','8','9','0','!','@','$','?','<','>','*','&')
+$UpperCase = @('A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z')
+$LowerCase = @('a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z')
+$Numbers = @('1', '2', '3', '4', '5', '6', '7', '8', '9', '0')
+$Symbols = @('!', '@', '$', '?', '<', '>', '*', '&')
+$FullSet = @('A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '!', '@', '$', '?', '<', '>', '*', '&')
 
 # Check to see if all character sets are used
-$HasUpperCase=0
-$HasLowerCase=0
-$HasNumbers=0
-$HasSymbols=0
+$HasUpperCase = 0
+$HasLowerCase = 0
+$HasNumbers = 0
+$HasSymbols = 0
 
-
-While($HasUpperCase -eq 0 -or $HasLowerCase -eq 0 -or $HasNumbers -eq 0 -or $HasSymbols -eq 0)
-{
+While ($HasUpperCase -eq 0 -or $HasLowerCase -eq 0 -or $HasNumbers -eq 0 -or $HasSymbols -eq 0) {
     # Generate New Password
-
-    # Initialize password variable
-    $Password=""
-
     $PasswordArray = $FullSet | Get-Random -Count $Length
-        For ($Index=0; $Index -lt $Length; $Index++)
-                    {
-                        $Password=$Password+$PasswordArray[$Index]
-                    }
+    $Password = $PasswordArray[0..($Length - 1)] -join ''
 
-
-    # Password Validation (Test the password that has been created)
-    For ($Index=0;$Index -lt $Length; $Index++)
-                {
-                    $Character=$Password.Substring($Index,1)
-                        If ($UpperCase -Ccontains $Character) {$HasUpperCase=1}
-                        If ($LowerCase -Ccontains $Character) {$HasLowerCase=1}
-                        If ($Numbers -Contains $Character) {$HasNumbers=1}
-                        If ($Symbols -Contains $Character) {$HasSymbols=1}
-                }
+    # Test the password that has been created
+    For ($Index = 0; $Index -lt $Length; $Index++) {
+        $Character = $Password.Substring($Index, 1)
+        If ($Character -in $UpperCase) { $HasUpperCase = 1 }
+        If ($Character -in $LowerCase) { $HasLowerCase = 1 }
+        If ($Character -in $Numbers) { $HasNumbers = 1 }
+        If ($Character -in $Symbols) { $HasSymbols = 1 }
+    }
 }
 
 # Display Password
 Write-Host "The new password is: " $Password
+# Display Password length
+Write-Host "Password length is: " $Length
+# Insert the generated password string into the Windows clipboard
 Set-Clipboard -Value $Password
