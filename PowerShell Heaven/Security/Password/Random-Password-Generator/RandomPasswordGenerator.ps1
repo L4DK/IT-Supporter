@@ -20,23 +20,32 @@
     Change History:
 
     - Version 1.1.0 (January 28, 2024)
+        - Added input validation for the password length, ensuring it falls within a valid range.
+        - Added options for users to specify password complexity requirements.
+        - Added an interactive menu for users to customize password generation settings.
+        
+        - Improved the user experience by providing feedback on password generation progress.
         - Skipped support for PowerShell version 5, it's now only compatible with version 7.x.x
 
-        - Added input validation for the password length, ensuring it falls within a valid range.
-
-        - Improved the user experience by providing feedback on password generation progress.
-        - Enhanced the clipboard functionality to store the generated password securely as a SecureString.
-
         - Fixed: Corrected the casting of the password length to an integer to prevent errors.
+        - Fixed: Addressed the CalculateDifficultyLevel function to accept a SecureString parameter.
         - Fixed: Addressed the limitation on console output for displaying complete passwords.
-
+    -----------------------------------------------------------------------------------------------------------
 
     - Version 1.0.1 (January 27, 2024)
         - Added the feature to let the user input in the terminal, the length of the wanted generated password.
+    -----------------------------------------------------------------------------------------------------------
 
     - Version 1.0.0 (January 27, 2024)
         - Initial release
+    -----------------------------------------------------------------------------------------------------------
 #>
+
+$RequireUpperCase = Read-Host "Require uppercase letters? (Y/N)"
+$RequireLowerCase = Read-Host "Require lowercase letters? (Y/N)"
+$RequireNumbers = Read-Host "Require numbers? (Y/N)"
+$RequireSymbols = Read-Host "Require symbols? (Y/N)"
+
 
 # Password Length User-input
 $Length = Read-Host "Enter the length of the password"
@@ -56,7 +65,7 @@ $HasNumbers = 0
 $HasSymbols = 0
 
 # While loop
-While ($HasUpperCase -eq 0 -or $HasLowerCase -eq 0 -or $HasNumbers -eq 0 -or $HasSymbols -eq 0) {
+While ($HasUpperCase -eq 0 -or $HasLowerCase -eq 0 -or $HasNumbers -eq 0 -or $HasSymbols -eq 0 -or ($RequireUpperCase -eq 'Y' -and $HasUpperCase -eq 0) -or ($RequireLowerCase -eq 'Y' -and $HasLowerCase -eq 0) -or ($RequireNumbers -eq 'Y' -and $HasNumbers -eq 0) -or ($RequireSymbols -eq 'Y' -and $HasSymbols -eq 0)) {
 
     # Generate New Password
     $PasswordArray = $FullSet | Get-Random -Count $Length
@@ -73,12 +82,23 @@ While ($HasUpperCase -eq 0 -or $HasLowerCase -eq 0 -or $HasNumbers -eq 0 -or $Ha
 }
 
 # Display Password
-Write-Host "The new password is:"
-Write-Host $Password
+Write-Host ""
+Write-Host "The new password is: $Password"
 
 # Display Password length
+Write-Host ""
 Write-Host "Password length is: $($Password.Length)"
+Write-Host ""
+Write-Host "Password complexity requirements:"
+Write-Host "Uppercase letters: $RequireUpperCase"
+Write-Host "Lowercase letters: $RequireLowerCase"
+Write-Host "Numbers: $RequireNumbers"
+Write-Host "Symbols: $RequireSymbols"
+Write-Host ""
 
 # Insert the generated password string into the Windows clipboard
 $SecurePassword = ConvertTo-SecureString -String $Password -AsPlainText -Force
-Set-Clipboard -Value $SecurePassword
+
+#Disabled for now
+#Set-Clipboard -Value $SecurePassword
+
