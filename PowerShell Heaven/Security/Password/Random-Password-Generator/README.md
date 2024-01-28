@@ -45,7 +45,7 @@ Feel free to contribute to the Password Generator script by considering the foll
 ## Additional Ideas
 
 1. **Password Complexity Options:**
-   > Add options for users to specify password complexity requirements.
+   > :white_check_mark: Add options for users to specify password complexity requirements.
 
 2. **Interactive Menu:**
    > Develop an interactive menu for users to customize password generation settings.
