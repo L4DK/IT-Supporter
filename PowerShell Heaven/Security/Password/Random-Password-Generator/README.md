@@ -48,7 +48,7 @@ Feel free to contribute to the Password Generator script by considering the foll
    > :white_check_mark: Add options for users to specify password complexity requirements.
 
 2. **Interactive Menu:**
-   > Develop an interactive menu for users to customize password generation settings.
+   > :white_check_mark: Develop an interactive menu for users to customize password generation settings.
 
 3. **Export Options:**
    > Allow users to export generated passwords to a file or a secure password vault.
